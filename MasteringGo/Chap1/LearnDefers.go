@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"runtime"
 )
 
 func d1() {
@@ -34,8 +35,17 @@ func d3() {
 	}
 	fmt.Println()
 }
-
+func systemInfo() {
+	fmt.Println("------->")
+	fmt.Print("You are using ", runtime.Compiler, " ")
+	fmt.Println("on a", runtime.GOARCH, "machine")
+	fmt.Println("Using Go version", runtime.Version())
+	fmt.Println("Number of CPUs:", runtime.NumCPU())
+	fmt.Println("Number of Goroutines:", runtime.NumGoroutine())
+	fmt.Println("------->")
+}
 func main() {
+	systemInfo()
 	d1()
 	d2()
 	fmt.Println("<<")
