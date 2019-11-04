@@ -15,4 +15,18 @@ continuing with the execution of the program. It is up to the developer to use
 common sense and decide what to do with each `error` value that the program
 might get.
 
+### The `defer` keyword
+
+The `defer` keyword postpones the execution of a function untill the
+surrounding function returns. It is widely used in file inpu9t and output
+operations because it saves you from having to remember when to close an opened
+file: the `defer` keyword allows you to to put the function call that closes
+an opened file near to the function call that opened it.
+
+It is very important to remember that __deferred functions__ are executed in
+`Last In First Out` order after the return of the surrounding function. Put
+simply, this means that if you `defer` function `f1()` first, function `f2()`
+second (conceptually, it means `defer f1...; defer f2 ...` then when the
+surrounding function is about to return, function `f2() -> f1()` executes in that order. 
+
 
