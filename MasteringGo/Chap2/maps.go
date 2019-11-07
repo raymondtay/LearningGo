@@ -25,4 +25,17 @@ func main() {
 	}
 	fmt.Println(">>", iMap)
 	fmt.Println(">>", anotherMap)
+
+	delete(anotherMap, "k1")
+	delete(anotherMap, "k1")
+	delete(anotherMap, "k1") // does not matter how many times its repeated.
+	fmt.Println("anotherMap:", anotherMap)
+
+	_, ok := iMap["doesItExist"]
+	if ok {
+		fmt.Println("Exists!")
+	} else {
+		fmt.Println("Does NOT exist")
+	}
+
 }
